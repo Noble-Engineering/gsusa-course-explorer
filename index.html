@@ -615,7 +615,7 @@ function renderCard(c) {
   const fwKeys = Object.keys(c.frameworks).filter(k => c.frameworks[k].length > 0);
   return `<div class="course-card" onclick="openModal('${c.sku}')">
     <div class="card-header">
-      <span class="card-sku">${c.sku}${c.selfPaced ? '<span class="badge-self-paced">Self-Paced</span>' : ''}${!c.inCatalog && !c.selfPaced ? '<span class="badge-contract">Contract Only</span>' : ''}${c.slug ? ' <a href="https://www.graduateschool.edu/' + c.slug + '" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--blue-accent);text-decoration:none;font-size:12px;" title="View on graduateschool.edu">&#8599;</a>' : ''}</span>
+      <span class="card-sku">${c.sku}${c.selfPaced ? '<span class="badge-self-paced">Self-Paced</span>' : ''}${!c.inCatalog && !c.selfPaced ? '<span class="badge-contract">Contract Only</span>' : ''}${c.slug ? ' <a href="https://www.graduateschool.edu/courses/' + c.slug + '" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--blue-accent);text-decoration:none;font-size:12px;" title="View on graduateschool.edu">&#8599;</a>' : ''}</span>
       <span class="card-hours">${c.hours} hrs</span>
     </div>
     <div class="card-title">${c.title}</div>
@@ -627,7 +627,7 @@ function renderCard(c) {
 function renderTableRow(c) {
   const fwKeys = Object.keys(c.frameworks).filter(k => c.frameworks[k].length > 0);
   return `<tr onclick="openModal('${c.sku}')">
-    <td style="font-weight:600;white-space:nowrap;">${c.slug ? '<a href="https://www.graduateschool.edu/' + c.slug + '" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--blue-accent);text-decoration:none;">' + c.sku + ' &#8599;</a>' : '<span style="color:var(--blue-accent);">' + c.sku + '</span>'}${c.selfPaced ? ' <span class="badge-self-paced">SP</span>' : ''}${!c.inCatalog && !c.selfPaced ? ' <span class="badge-contract">CO</span>' : ''}</td>
+    <td style="font-weight:600;white-space:nowrap;">${c.slug ? '<a href="https://www.graduateschool.edu/courses/' + c.slug + '" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--blue-accent);text-decoration:none;">' + c.sku + ' &#8599;</a>' : '<span style="color:var(--blue-accent);">' + c.sku + '</span>'}${c.selfPaced ? ' <span class="badge-self-paced">SP</span>' : ''}${!c.inCatalog && !c.selfPaced ? ' <span class="badge-contract">CO</span>' : ''}</td>
     <td>${c.title}</td>
     <td>${c.subjects.join(', ')}</td>
     <td style="text-align:center;">${c.hours}</td>
@@ -685,7 +685,7 @@ function openModal(sku) {
     <div class="meta-item"><span class="meta-label">Subjects:</span> ${c.subjects.join(', ')}</div>
     ${c.selfPaced ? '<div class="meta-item"><span class="badge-self-paced">Self-Paced</span></div>' : ''}
     ${!c.inCatalog ? '<div class="meta-item"><span class="badge-contract">Contract Only</span></div>' : ''}
-    ${c.slug ? '<div class="meta-item"><a href="https://www.graduateschool.edu/' + c.slug + '" target="_blank" rel="noopener" style="color:var(--blue-accent);text-decoration:none;font-weight:600;">View on graduateschool.edu &#8599;</a></div>' : ''}
+    ${c.slug ? '<div class="meta-item"><a href="https://www.graduateschool.edu/courses/' + c.slug + '" target="_blank" rel="noopener" style="color:var(--blue-accent);text-decoration:none;font-weight:600;">View on graduateschool.edu &#8599;</a></div>' : ''}
   `;
 
   const fwKeys = Object.keys(c.frameworks).filter(k => c.frameworks[k].length > 0);
